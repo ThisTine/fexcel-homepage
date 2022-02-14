@@ -61,9 +61,9 @@ const ETCModal: FC<{
                 </h1>
                 <h2 className="text-lg text-center">
                   อย่างไรก็ตาม ในขณะนี้ผลิตภัณฑ์ของเรายังอยู่ใน
-                  <span className="bg-[#FF8484] text-white">ช่วงการทดสอบ</span>
+                  <span className="bg-[#FF8484] text-white">ช่วงการทดสอบ</span> <br/>
                   คุณสามารถ ทิ้ง email
-                  ไว้ด้านล่างเพื่อติดตามข่าวสารเพิ่มเติมเกี่ยวกับ Fexcel
+                  ไว้ด้านล่างเพื่อติดตามข่าวสารเพิ่มเติมเกี่ยวกับ Fexcel <br/>
                   เเละเราจะเเจ้งให้คุณทราบเป็นคนเเรก ๆ เมื่อเราพร้อม
                 </h2>
                 {/* <button className="p-2" onClick={onClose} > <AiOutlineClose/> </button> */}
@@ -84,7 +84,7 @@ const ETCModal: FC<{
                 <div className="flex justify-center">
                   <button
                     type="submit"
-                    // disabled={!email}
+                    disabled={!email || isloading}
                     // onClick={submit}
                     className={`${isloading ? "hover:bg-[#f8becd]" : "hover:bg-[#f792ab]"} ${isloading ? "bg-[#f8becd]" : "bg-[#FEA8BD]"} transition hover:shadow-lg p-3 rounded-full px-12 flex `}
                   >

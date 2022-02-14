@@ -4,7 +4,7 @@ import groupwork from '../animation/group-working.json'
 const About:FC = ()=>{
     return(
         <section className='flex flex-col items-center'>
-        <div className='bg-[#E2E6F9] w-full overflow-hidden' > <h1 className='text-center text-5xl py-3 font-Dongle lg:text-7xl' data-aos="flip-up" >What is <span className="font-Montserrat-Alternates font-bold text-3xl lg:text-5xl">Fexcel</span> ? </h1> </div>
+        <div className='bg-[#E2E6F9] w-full overflow-hidden' > <h1 className='text-center text-7xl py-3 font-Dongle lg:text-8xl' data-aos="flip-up" >What is <span className="font-bold text-4xl lg:text-7xl">Fexcel</span> ? </h1> </div>
         <div className=' container flex flex-col-reverse lg:flex-row my-10 items-center'>
           <div className=' flex-[3] flex flex-col gap-5'>
             <h1 data-aos="fade-up" className='text-5xl font-bold'>Fexcel</h1>

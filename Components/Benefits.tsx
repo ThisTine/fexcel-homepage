@@ -15,7 +15,7 @@ const benefitsitems = [
 const Benefits:FC = ()=>{
     return(
         <section className='flex flex-col items-center'>
-        <div className='bg-[#E2E6F9] w-full overflow-hidden'  > <h1 className='text-center font-bold text-5xl py-3 font-Dongle' data-aos="flip-up" >Benefits</h1> </div>
+        <div className='bg-[#E2E6F9] w-full overflow-hidden'  > <h1 className='text-center font-bold text-6xl lg:text-8xl py-3 font-Dongle' data-aos="flip-up" >Benefits</h1> </div>
         <div className="container" >
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 my-10" >
                 {benefitsitems.map((item,ind)=><div key={ind} className="w-full flex flex-col items-center gap-10" >
