@@ -39,9 +39,9 @@ const handleonclick = ()=>{
         <title>Demo - Fexcel</title>
         </Head>
       <div className="container sm:w-full">
-        <div className=" w-fit flex flex-col items-start">
+        <div className=" w-full flex flex-col items-start">
           <h1 className="text-3xl  text-left bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3" data-aos="fade-down" >Now try it with these formula</h1>
-          <div className="flex gap-3 justify-start w-full">
+          <div className="flex gap-3 justify-start w-full my-5 overflow-auto">
               {formula.map((item,idx)=><ButtonModal key={item.name} idx={idx} item={item}/>)}
               
           </div>

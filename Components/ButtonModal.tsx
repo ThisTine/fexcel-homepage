@@ -19,7 +19,7 @@ const ButtonModal:FC<{item:formulatype,idx:number}> = ({item,idx})=>{
             </div>
         </div>
       </Modal>
-     <button data-aos="zoom-in" data-aos-delay={idx*100+100} onClick={()=>setOpened(true)} className={`bg-purple-200 p-3 px-5 rounded-2xl shadow-md hover:shadow-lg focus:ring-4 hover:bg-purple-500 hover:text-white transition-all`}>{item.name}</button> </>
+     <button data-aos="zoom-in" data-aos-delay={idx*100+100} onClick={()=>setOpened(true)} className={`bg-purple-200 p-1 px-3 lg:p-3 lg:px-5 rounded-2xl shadow-md hover:shadow-lg focus:ring-4 hover:bg-purple-500 hover:text-white transition-all`}>{item.name}</button> </>
 }
 
 export default ButtonModal
