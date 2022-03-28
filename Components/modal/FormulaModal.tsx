@@ -1,22 +1,42 @@
 import { Modal } from "@mantine/core";
-import Select from "react-select";
-import { ChangeEvent, FC, useLayoutEffect, useState } from "react";
+import { Select } from '@mantine/core';
+import { ChangeEvent, FC, useContext, useEffect, useLayoutEffect, useState } from "react";
 import { mode } from "../../json/formula";
 import { moduletype } from "../sheet/InputCell";
 import { v4 as uuidv4 } from "uuid";
+import ModeOptions from "../sheet/ModeOptions";
+import { datasheetContext } from "../../contexts/DatasheetContextProvider";
 
 type celldata = { id: string; value: string }
+type opttype = {value:string,label:string}
+type arr = "A" | "B" | "C"
 
 const FormulaModal: FC<{
     opened: boolean;
+    isexample:boolean;
     setOpened: () => void;
     modaldata: moduletype;
     setVal: (value: string | ChangeEvent<any> | null | undefined) => void
-}> = ({ opened, setOpened, modaldata, setVal }) => {
+}> = ({ opened, setOpened, modaldata, setVal,isexample }) => {
+    const {data} = useContext(datasheetContext)
     const [cells, setcells] = useState<celldata[]>([]);
     const [cmode, setcmode] = useState<mode>(
         modaldata.formuladata?.mode || "and"
     );
+    const [options,setoptions] = useState<opttype[]>([])
+    useEffect(()=>{
+        let dts:opttype[] = []
+        data.forEach((item,idx)=>{
+            let arr:arr[] = ["A","B","C"]
+            arr.forEach(it=>{
+                let form = {value:`${it}${idx+1}`,label: cmode === "to" ? `${it}${idx+1}` : `${it}${idx+1} (${item[it]})`}
+                if(!(it === "C" && isexample))
+                if(!(cmode === "and" && (isNaN(parseInt(item[it]))) ))
+                dts.push(form)
+            })
+        })
+        setoptions(dts)
+    },[cmode])
 
     useLayoutEffect(() => {
         if (modaldata.formuladata) {
@@ -58,7 +78,7 @@ const FormulaModal: FC<{
     }
     return (
         <Modal
-            zIndex={99999}
+            zIndex={999}
             opened={opened}
             onClose={() => setOpened()}
             title={modaldata?.formuladata?.name}
@@ -66,23 +86,10 @@ const FormulaModal: FC<{
             <h1 className="my-5 p-3 bg-slate-500 rounded-2xl text-2xl w-fit text-white">
                 {modaldata.formuladata?.formula}({cells.map(item => item.value).toString().replaceAll(",", (cmode === "and" ? "," : ":"))}){" "}
             </h1>
-            <Select
-                className="flex-[5] mb-5"
-                defaultValue={cmode}
-                isDisabled={(modaldata.formuladata?.mode !== undefined)}
-                
-                onChange={(e) => {
-                    //@ts-ignore
-                    if (e && e.value) setcmode(e.value);
-                }}
-                options={[
-                    //@ts-ignore
-                    { value: "and", label: "and" },
-                    //@ts-ignore
-                    { value: "to", label: "to" },
-                ]}
-                placeholder={(modaldata.formuladata?.mode !== undefined) ? modaldata.formuladata?.mode :"mode"}
-            />
+            
+            <h2 className="text-lg" >Mode</h2>
+            <ModeOptions defaultValue={cmode} isDisable={(modaldata.formuladata?.mode !== undefined)} onChange={(e)=>setcmode(e)} />
+
             <h2 className="text-xl font-bold">Which Cell ?</h2>
             <div className="grid grid-cols-2 gap-3 w-full flex-wrap">
                 {cells.map((item) => (
@@ -95,11 +102,8 @@ const FormulaModal: FC<{
                                 x
                             </button>
                         )}
-                        <input
-                            className=" border-2 p-2 w-full  focus-visible:outline-purple-200"
-                            onChange={(e) => onChangeHandle(item.id, e.target.value)}
-                            value={viewValue(item.id)}
-                        />
+                        <Select zIndex={999} value={viewValue(item.id)} data={options} onChange={(e)=>{if(e)onChangeHandle(item.id,e)}} />
+                       
                     </div>
                 ))}
             </div>

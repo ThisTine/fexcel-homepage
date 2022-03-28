@@ -30,7 +30,7 @@ const sum = (value:string[])=>{
     return mathsum(sumval)
 }
 
-export const cnr = (value:string[])=>{
+ const cnr = (value:string[])=>{
     if(value.length !== 2) return "Only accept 2 arguments"
     let sumval = getNum(value)
     if(!sumval) return "Not a number"
@@ -65,7 +65,7 @@ const product = (value:string[])=>{
     return x
 }
 
-const average = (value:string[])=>{
+export const average = (value:string[])=>{
     if(value.length < 2) return "Only accept 2 or more arguments"
     let sumval = getNum(value)
     if(!sumval) return "Not a number"
@@ -77,7 +77,7 @@ const formula:formulatype[] = [
     {"name":"Sum","keywords":["summation rule","sum","บวก","summation","add"],formula:"=SUM",min:2,max:100,function:sum},
     {"name":"Romanize","keywords":["roman","โรมัน","xxi","romanize"],formula:"=ROMAN",min:1,max:1,function:romanize,mode:"and"},
     {"name":"Multiply","keywords":["Multiply","คูณ","product","Multiplication"],formula:"=PRODUCT",min:2,max:100,function:product},
-    {"name":"Mean","keywords":["Average","ค่ากลาง","mean","middle","median"],formula:"=AVERAGE",min:2,max:100,function:average},
+    {"name":"Mean","keywords":["avg","Average","ค่ากลาง","mean","middle","median"],formula:"=AVERAGE",min:2,max:100,function:average},
 
 
 ]

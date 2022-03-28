@@ -119,6 +119,7 @@ const InputCell = ({
       <>
         {" "}
         <FormulaModal
+        isexample={false}
           modaldata={module}
           opened={module.isopen}
           setOpened={() => dispatch({ type: "close" })}

@@ -1,11 +1,13 @@
+import { Button, Modal } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   DataSheetGrid,
   textColumn,
   keyColumn,
   Column,
+  DataSheetGridRef,
 } from "react-datasheet-grid";
 import "react-datasheet-grid/dist/style.css";
 import ButtonModal from "../Components/ButtonModal";
@@ -16,9 +18,12 @@ import formula from "../json/formula";
 
 function Demo() {
   const {data,setData} = useContext(datasheetContext)
+  const [opened, setOpened] = useState(false);
+  const [wel,setwel] = useState(true)
+  
   const columns: Partial<Column<Record<string, any>, any, any>>[] = [
-    { ...keyColumn("A", textColumn), title: "A",minWidth:200 },
-    { ...keyColumn("B", textColumn), title: "B",minWidth:200 },
+    { title: "A",minWidth:200,component:InputCell,columnData:{label:"A"},keepFocus:true  },
+    { title: "B",minWidth:200,component:InputCell,columnData:{label:"B"},keepFocus:true },
     { title: "C",component: InputCell,columnData:{label:"C"},keepFocus:true,minWidth:200},
   ];
   const changedata = (data:{
@@ -29,19 +34,27 @@ function Demo() {
   setData(data)
 }
 
-const handleonclick = ()=>{
-    localStorage.removeItem("demo")
-}
 
   return (
     <main className="min-h-screen mt-28 flex items-center w-full flex-col">
         <Head>
         <title>Demo - Fexcel</title>
         </Head>
+        <Modal
+        withCloseButton={false}
+        opened={wel}
+        onClose={() => setwel(false)}
+      >
+          <h1 className="text-xl font-bold">บอกเราหน่อยว่าคุณรู้สึกอย่างไรกับบริการของ Fexcel ?</h1>
+          <div className="gap-6 flex flex-col min-h-[200px] justify-center items-center">
+          
+          <a className="p-5 text-lg px-8 w-fit rounded-lg hover:bg-purple-800 transition-all focus:ring-4 bg-purple-600 text-white" href="https://docs.google.com/forms/d/1Es-HCtcz7XtAQ1O4fD8vLgNpXCu5HvtwQ6358337kPQ/edit?usp=sharing" target={"_blank"} >Google Form</a>
+          </div>
+      </Modal>
       <div className="container sm:w-full">
         <div className=" w-full flex flex-col items-start">
           <h1 className="text-3xl  text-left bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3" data-aos="fade-down" >Now try it with these formula</h1>
-          <div className="flex gap-3 justify-start w-full my-5 overflow-auto">
+          <div className="flex gap-3 justify-start w-full my-2 overflow-auto py-3">
               {formula.map((item,idx)=><ButtonModal key={item.name} idx={idx} item={item}/>)}
               
           </div>
@@ -57,7 +70,7 @@ const handleonclick = ()=>{
           />
         </div>
         <div className="mt-5" data-aos="fade-up" data-aos-delay="200">
-            <Link href="/example"><button onClick={handleonclick} className="p-3 px-6 bg-red-300 rounded-xl hover:bg-red-400 hover:shadow-lg transition-all text-white" >Go Back to Example</button></Link>
+            <a href="https://docs.google.com/forms/d/1Es-HCtcz7XtAQ1O4fD8vLgNpXCu5HvtwQ6358337kPQ/edit?usp=sharing" target={"_blank"} className="p-3 px-6 bg-lime-400 rounded-xl hover:bg-lime-500 hover:shadow-lg transition-all text-white" >FeedBack !</a>
         </div>
       </div>
     </main>

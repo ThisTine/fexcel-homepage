@@ -1,7 +1,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   DataSheetGrid,
   textColumn,
@@ -11,19 +11,22 @@ import {
 } from "react-datasheet-grid";
 import "react-datasheet-grid/dist/style.css";
 import ReactTypingEffect from "react-typing-effect";
+import ExampleInputCell from "../Components/sheet/ExampleInputCell";
 import InputCell, { checkKeyword } from "../Components/sheet/ExampleInputCell";
 import { datasheetContext } from "../contexts/DatasheetContextProvider";
-import formula from "../json/formula";
+import formula from "../json/exformula";
 type datatype = 'A'|'B'|'C'
 
 
 function Example() {
   const [step,setstep]=useState(0)
   const {data,setData} = useContext(datasheetContext)
+  const [fq,setfq] = useState(false)
+  const [sq,setsq] = useState(false)
+  const ref = useRef<DataSheetGridRef>(null)
   const columns: Partial<Column<Record<string, any>, any, any>>[] = [
-    { ...keyColumn("A", textColumn), title: "A", disabled: true,minWidth:200 },
-    { ...keyColumn("B", textColumn), title: "B",minWidth:200 },
-    { title: "C",component: InputCell,columnData:{label:"C"},keepFocus:true,minWidth:200},
+    { ...keyColumn("A", textColumn), title: "A",minWidth:200 },
+    {  title: "B",minWidth:200,component:ExampleInputCell,columnData:{label:"B"},keepFocus:true },
   ];
   const savetostorage = ()=>{
     localStorage.setItem("demo","true")
@@ -34,7 +37,7 @@ function Example() {
     C: string;
 }[])=>{
   setData(data)
-  const regex = /=COMBIN\([A-Z][0-9]\,[A-Z][0-9]\)/
+  const regex = /=AVERAGE\([A-Z][0-9](\,|\:)[A-Z][0-9]\)/
   data.forEach(item=>{
     let arr:datatype[] = ["A","B","C"]
     arr.forEach(it=>{
@@ -42,14 +45,25 @@ function Example() {
       if(checkKeyword(text+"") && step === 0){
         setstep(1)
       }
-      console.log((text+"").match(regex))
       if(regex.test(text+"") && step === 1){
-        
         setstep(2)
       }
-    })
+      if(text.toLocaleUpperCase() === "=AVERAGE(A1:A4)"){
+        setfq(true)
+      }
+      if(text.toLocaleUpperCase() === "=AVERAGE(A1,A3)"){
+        setsq(true)
+      }
+    }
+    )
   })
 }
+
+useEffect(()=>{
+  if(ref.current){
+    ref.current?.setActiveCell({col:1,row:0})
+  }
+},[])
   return (
     <main className="min-h-screen mt-28 flex items-center w-full flex-col">
       <Head>
@@ -57,7 +71,7 @@ function Example() {
         </Head>
       <div className="container sm:w-full">
         <div className=" w-fit flex flex-col items-center">
-          <h1 data-aos="fade-down" className="text-3xl  text-center bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3">Do you know how to use <b> a combination rule </b> from excel ?</h1>
+          <h1 data-aos="fade-down" className="text-3xl bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3 text-left">Do you know how to fine <b> an average </b> of data in excel ?</h1>
           {step === 0 &&<h2 data-aos="fade" data-aos-delay="100" className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Try typing <b>“<ReactTypingEffect
         text={formula[0].keywords}
         speed={50}
@@ -79,13 +93,19 @@ function Example() {
           );
         }}        
       />”</b></h2>}
-        {step === 1 && <h2 data-aos="fade" className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Click on <b>Combination rule</b> and <b>select</b> what you want to combine</h2>}
-        {step === 2 && <div data-aos="fade" className="flex justify-start  w-full">
-          <h2 className="text-lg justify-self-start bg-[#FEA8BD] p-3 px-5 rounded-lg mb-7">All Done !</h2>
+        {step === 1 && <h2 data-aos="fade" className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Click on <b>Mean</b> and <b>select</b> what you want to combine</h2>}
+        {step === 2 && <div data-aos="fade" className="flex justify-start w-full flex-col">
+          <h2 className="text-lg justify-self-start bg-[#FEA8BD] p-3 px-5 rounded-lg mb-2 w-fit">All Done !</h2>
+          <div >
+            <h2 className="text-lg font-bold">Now try this</h2>
+            <p>A) Find the average of <b> A1 to A4 </b> {fq ?"✔️" : "❌"} </p>
+            <p>B) Find the average of <b> A1 and A3 </b> {sq ? "✔️" : "❌"} </p>
+          </div>
           </div>}
         </div>
         <div className=" sm:p-2 lg:p-10 w-full bg-white shadow-lg rounded-lg">
            <DataSheetGrid
+           ref={ref}
             value={data}
             lockRows={true} 
             //@ts-ignore
@@ -93,7 +113,7 @@ function Example() {
             columns={columns}
           />
         </div>
-        {step===2 && <div data-aos="fade-up" className="flex w-full justify-end"> <Link href="/demo"><button onClick={savetostorage}  className="text-lg text-white mt-5 transition-all hover:shadow-xl focus:ring-4 justify-self-start bg-[#9a42ff] hover:bg-[#6d28bd] p-3 px-5 rounded-lg mb-7 ml-3 shadow-md">I understand how fexcel work !</button></Link> </div>}
+        {(step===2 && fq && sq ) && <div data-aos="fade-up" className="flex w-full justify-end"> <Link href="/demo"><button onClick={savetostorage}  className="text-lg text-white mt-5 transition-all hover:shadow-xl focus:ring-4 justify-self-start bg-[#9a42ff] hover:bg-[#6d28bd] p-3 px-5 rounded-lg mb-7 ml-3 shadow-md">Try more functions !</button></Link> </div>}
       </div>
     </main>
   );

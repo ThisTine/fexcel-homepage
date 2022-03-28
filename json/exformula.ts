@@ -1,7 +1,6 @@
-import { cnr, formulatype } from "./formula";
+import { average, formulatype } from "./formula";
 
-const formula:formulatype[] = [
-    {"name":"Combination rule","keywords":["combination rule","cnr","เลือก","choose","combin"],formula:"=COMBIN",min:2,max:2,mode:"and",function:cnr},
+const exformula:formulatype[] = [
+    {"name":"Mean","keywords":["avg","Average","ค่ากลาง","mean","middle","median"],formula:"=AVERAGE",min:2,max:100,function:average},
 ]
-
-export default formula
+export default exformula
