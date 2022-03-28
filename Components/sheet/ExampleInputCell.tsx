@@ -22,6 +22,7 @@ import praseFormula from "../../functions/praseFormula";
 import formula from "../../json/exformula";
 import { formulatype } from "../../json/formula";
 import FormulaModal from "../modal/FormulaModal";
+import CustomOption from "./CustomOption";
 export const checkKeyword: (item: string) => boolean = (item) => {
   if (!item || item.length < 3) {
     return false;
@@ -143,6 +144,7 @@ const ExampleInputCell = ({
               opacity: 0,
             }),
           }}
+          components={{Option:CustomOption}}
           menuPortalTarget={document.body}
           autoFocus={true}
           ref={selectedref}
@@ -150,7 +152,9 @@ const ExampleInputCell = ({
           menuIsOpen={checkKeyword(val)}
           onInputChange={setVal}
           onChange={(e) => {
+            //@ts-ignore
             dispatch({ type: "open", name: e.value });
+            //@ts-ignore
             setVal(e?.value);
           }}
           filterOption={() => true}

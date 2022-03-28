@@ -15,12 +15,13 @@ import {
   useState,
 } from "react";
 import { CellProps } from "react-datasheet-grid";
-import Select from "react-select";
+import Select, { OptionProps } from "react-select";
 import { datasheetContext } from "../../contexts/DatasheetContextProvider";
 import getCellArray from "../../functions/getCellArray";
 import praseFormula from "../../functions/praseFormula";
 import formula, { formulatype, mode } from "../../json/formula";
 import FormulaModal from "../modal/FormulaModal";
+import CustomOption from "./CustomOption";
 export const checkKeyword: (item: string) => boolean = (item) => {
   if (!item || item.length < 3) {
     return false;
@@ -73,9 +74,6 @@ const reudcer: Reducer<moduletype, moduleactiontype> = (prev, act) => {
 const init: moduletype = {
   isopen: false,
 };
-
-// const CustomOption:FC<any> = ({ innerRef, innerProps }) => (
-//   <div ref={innerRef} {...innerProps} />)
 
 const InputCell = ({
   rowData,
@@ -145,7 +143,7 @@ const InputCell = ({
               opacity: 0,
             }),
           }}
-          // components={{Option:CustomOption}}
+          components={{Option:CustomOption}}
           menuPortalTarget={document.body}
           autoFocus={true}
           ref={selectedref}
@@ -153,7 +151,9 @@ const InputCell = ({
           menuIsOpen={checkKeyword(val)}
           onInputChange={setVal}
           onChange={(e) => {
+            //@ts-ignore
             dispatch({ type: "open", name: e.value });
+            //@ts-ignore
             setVal(e?.value);
           }}
           filterOption={() => true}

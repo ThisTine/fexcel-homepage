@@ -57,8 +57,8 @@ function Example() {
         </Head>
       <div className="container sm:w-full">
         <div className=" w-fit flex flex-col items-center">
-          <h1 className="text-3xl  text-center bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3">Do you know how to use <b> a combination rule </b> from excel ?</h1>
-          {step === 0 &&<h2 className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Try typing <b>“<ReactTypingEffect
+          <h1 data-aos="fade-down" className="text-3xl  text-center bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3">Do you know how to use <b> a combination rule </b> from excel ?</h1>
+          {step === 0 &&<h2 data-aos="fade" data-aos-delay="100" className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Try typing <b>“<ReactTypingEffect
         text={formula[0].keywords}
         speed={50}
         eraseSpeed={50}
@@ -79,8 +79,8 @@ function Example() {
           );
         }}        
       />”</b></h2>}
-        {step === 1 && <h2 className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Click on <b>Combination rule</b> and <b>select</b> what you want to combine</h2>}
-        {step === 2 && <div className="flex justify-start  w-full">
+        {step === 1 && <h2 data-aos="fade" className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Click on <b>Combination rule</b> and <b>select</b> what you want to combine</h2>}
+        {step === 2 && <div data-aos="fade" className="flex justify-start  w-full">
           <h2 className="text-lg justify-self-start bg-[#FEA8BD] p-3 px-5 rounded-lg mb-7">All Done !</h2>
           </div>}
         </div>
@@ -93,7 +93,7 @@ function Example() {
             columns={columns}
           />
         </div>
-        {step===2 && <div className="flex w-full justify-end"> <Link href="/demo"><button onClick={savetostorage}  className="text-lg text-white mt-5 transition-all hover:shadow-xl focus:ring-4 justify-self-start bg-[#9a42ff] hover:bg-[#6d28bd] p-3 px-5 rounded-lg mb-7 ml-3 shadow-md">I understand how fexcel work !</button></Link> </div>}
+        {step===2 && <div data-aos="fade-up" className="flex w-full justify-end"> <Link href="/demo"><button onClick={savetostorage}  className="text-lg text-white mt-5 transition-all hover:shadow-xl focus:ring-4 justify-self-start bg-[#9a42ff] hover:bg-[#6d28bd] p-3 px-5 rounded-lg mb-7 ml-3 shadow-md">I understand how fexcel work !</button></Link> </div>}
       </div>
     </main>
   );

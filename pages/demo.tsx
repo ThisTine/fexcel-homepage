@@ -6,7 +6,6 @@ import {
   textColumn,
   keyColumn,
   Column,
-  DataSheetGridRef,
 } from "react-datasheet-grid";
 import "react-datasheet-grid/dist/style.css";
 import ButtonModal from "../Components/ButtonModal";
@@ -41,9 +40,9 @@ const handleonclick = ()=>{
         </Head>
       <div className="container sm:w-full">
         <div className=" w-fit flex flex-col items-start">
-          <h1 className="text-3xl  text-left bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3">Now try it with these formula</h1>
+          <h1 className="text-3xl  text-left bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3" data-aos="fade-down" >Now try it with these formula</h1>
           <div className="flex gap-3 justify-start w-full">
-              {formula.map(item=><ButtonModal key={item.name} item={item}/>)}
+              {formula.map((item,idx)=><ButtonModal key={item.name} idx={idx} item={item}/>)}
               
           </div>
          
@@ -57,7 +56,7 @@ const handleonclick = ()=>{
             columns={columns}
           />
         </div>
-        <div className="mt-5">
+        <div className="mt-5" data-aos="fade-up" data-aos-delay="200">
             <Link href="/example"><button onClick={handleonclick} className="p-3 px-6 bg-red-300 rounded-xl hover:bg-red-400 hover:shadow-lg transition-all text-white" >Go Back to Example</button></Link>
         </div>
       </div>
