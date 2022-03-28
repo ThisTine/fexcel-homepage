@@ -74,6 +74,9 @@ const init: moduletype = {
   isopen: false,
 };
 
+// const CustomOption:FC<any> = ({ innerRef, innerProps }) => (
+//   <div ref={innerRef} {...innerProps} />)
+
 const InputCell = ({
   rowData,
   columnData: { label },
@@ -142,6 +145,7 @@ const InputCell = ({
               opacity: 0,
             }),
           }}
+          // components={{Option:CustomOption}}
           menuPortalTarget={document.body}
           autoFocus={true}
           ref={selectedref}

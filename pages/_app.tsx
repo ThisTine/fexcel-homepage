@@ -17,20 +17,21 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <>
-      <Head>
-        <title>Fexcel - for excellent Excel experiences.</title>
-      </Head>
-      <Script
-      strategy='lazyOnload'
+    <Script
+      id="gtm-link-script" strategy="afterInteractive"
       src={'https://www.googletagmanager.com/gtag/js?id=G-KD2NB1Y6DL'}
       />
       <Script 
-      strategy='lazyOnload'>
+      id="gtm-script" strategy="afterInteractive">
          {`window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
        gtag('js', new Date());
         gtag('config', 'G-KD2NB1Y6DL');`}
       </Script>
+      <Head>
+        <title>Fexcel - for excellent Excel experiences.</title>
+      </Head>
+      
       
       <NextNProgress />
       <NavBar />
