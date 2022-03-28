@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 const NavBar:FC = ()=>{
     return(
-        <header className="fixed w-full top-0 bg-white h-20 flex items-center shadow-md z-[999]">
+        <header className="fixed w-full top-0 bg-white h-20 flex items-center shadow-md z-[100]">
             <nav className="w-11/12 mx-auto flex justify-between" >
                 <Link href="/">
                 <a className="flex gap-3 w-fit items-center" >
