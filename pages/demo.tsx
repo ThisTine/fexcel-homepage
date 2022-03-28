@@ -48,7 +48,7 @@ function Demo() {
           <h1 className="text-xl font-bold">บอกเราหน่อยว่าคุณรู้สึกอย่างไรกับบริการของ Fexcel ?</h1>
           <div className="gap-6 flex flex-col min-h-[200px] justify-center items-center">
           
-          <a className="p-5 text-lg px-8 w-fit rounded-lg hover:bg-purple-800 transition-all focus:ring-4 bg-purple-600 text-white" href="https://docs.google.com/forms/d/1Es-HCtcz7XtAQ1O4fD8vLgNpXCu5HvtwQ6358337kPQ/edit?usp=sharing" target={"_blank"} >Google Form</a>
+          <a rel="noreferrer" className="p-5 text-lg px-8 w-fit rounded-lg hover:bg-purple-800 transition-all focus:ring-4 bg-purple-600 text-white" href="https://docs.google.com/forms/d/1Es-HCtcz7XtAQ1O4fD8vLgNpXCu5HvtwQ6358337kPQ/edit?usp=sharing" target={"_blank"} >Google Form</a>
           </div>
       </Modal>
       <div className="container sm:w-full">
@@ -70,7 +70,7 @@ function Demo() {
           />
         </div>
         <div className="mt-5" data-aos="fade-up" data-aos-delay="200">
-            <a href="https://docs.google.com/forms/d/1Es-HCtcz7XtAQ1O4fD8vLgNpXCu5HvtwQ6358337kPQ/edit?usp=sharing" target={"_blank"} className="p-3 px-6 bg-lime-400 rounded-xl hover:bg-lime-500 hover:shadow-lg transition-all text-white" >FeedBack !</a>
+            <a rel="noreferrer" href="https://docs.google.com/forms/d/1Es-HCtcz7XtAQ1O4fD8vLgNpXCu5HvtwQ6358337kPQ/edit?usp=sharing" target={"_blank"} className="p-3 px-6 bg-lime-400 rounded-xl hover:bg-lime-500 hover:shadow-lg transition-all text-white" >FeedBack !</a>
         </div>
       </div>
     </main>
