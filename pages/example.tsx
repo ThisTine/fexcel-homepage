@@ -17,8 +17,7 @@ import formula from "../json/formula";
 type datatype = 'A'|'B'|'C'
 
 
-function example() {
-  const sheetref = useRef<DataSheetGridRef>(null)
+function Example() {
   const [step,setstep]=useState(0)
   const {data,setData} = useContext(datasheetContext)
   const columns: Partial<Column<Record<string, any>, any, any>>[] = [
@@ -88,8 +87,7 @@ function example() {
         <div className=" sm:p-2 lg:p-10 w-full bg-white shadow-lg rounded-lg">
            <DataSheetGrid
             value={data}
-            lockRows={true}
-            ref={sheetref}
+            lockRows={true} 
             //@ts-ignore
             onChange={changedata}
             columns={columns}
@@ -101,4 +99,4 @@ function example() {
   );
 }
 
-export default example;
+export default Example;

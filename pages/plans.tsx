@@ -1,6 +1,5 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import Footer from "../Components/Footer"
 import ETCModal from "../Components/modal/ETCModal"
 import PlanCard from "../Components/PlanCard"
 import { useModel } from "../hooks/useModel"

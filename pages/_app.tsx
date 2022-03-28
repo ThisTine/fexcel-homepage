@@ -19,7 +19,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Fexcel - for excellent Excel experiences.</title>
-        <Script
+      </Head>
+      <Script
       strategy='lazyOnload'
       src={'https://www.googletagmanager.com/gtag/js?id=G-KD2NB1Y6DL'}
       />
@@ -30,7 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
        gtag('js', new Date());
         gtag('config', 'G-KD2NB1Y6DL');`}
       </Script>
-      </Head>
       
       <NextNProgress />
       <NavBar />

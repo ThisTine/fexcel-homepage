@@ -16,7 +16,6 @@ import formula from "../json/formula";
 
 
 function Demo() {
-  const sheetref = useRef<DataSheetGridRef>(null)
   const {data,setData} = useContext(datasheetContext)
   const columns: Partial<Column<Record<string, any>, any, any>>[] = [
     { ...keyColumn("A", textColumn), title: "A",minWidth:200 },
@@ -53,7 +52,6 @@ const handleonclick = ()=>{
            <DataSheetGrid
             value={data}
             lockRows={true}
-            ref={sheetref}
             //@ts-ignore
             onChange={changedata}
             columns={columns}
