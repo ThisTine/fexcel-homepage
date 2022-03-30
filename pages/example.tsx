@@ -71,7 +71,7 @@ useEffect(()=>{
         </Head>
       <div className="container sm:w-full">
         <div className=" w-fit flex flex-col items-center">
-          <h1 data-aos="fade-down" className="text-3xl bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3 text-left">Do you know how to fine <b> an average </b> of data in excel ?</h1>
+          <h1 data-aos="fade-down" className="text-3xl bg-[#FDE384] w-fit p-3 px-10 rounded-lg mb-3 text-left">Do you know how to find <b> an average </b> of data in excel ?</h1>
           {step === 0 &&<h2 data-aos="fade" data-aos-delay="100" className="text-lg justify-self-start mr-auto bg-[#E2E6F9] p-3 px-5 rounded-lg mb-7">Try typing <b>“<ReactTypingEffect
         text={formula[0].keywords}
         speed={50}
