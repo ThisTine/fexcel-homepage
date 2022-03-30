@@ -98,8 +98,8 @@ useEffect(()=>{
           <h2 className="text-lg justify-self-start bg-[#FEA8BD] p-3 px-5 rounded-lg mb-2 w-fit">All Done !</h2>
           <div >
             <h2 className="text-lg font-bold">Now try this</h2>
-            <p>A) Find the average of <b> A1 to A4 </b> {fq ?"✔️" : "❌"} </p>
-            <p>B) Find the average of <b> A1 and A3 </b> {sq ? "✔️" : "❌"} </p>
+            <p className={fq? "text-green-600" : "text-red-600"} >A) Find the average of <b> A1 to A4 </b> {fq ?"✔️" : "❌"} </p>
+            <p className={sq? "text-green-600" : "text-red-600"}  >B) Find the average of <b> A1 and A3 </b> {sq ? "✔️" : "❌"} </p>
           </div>
           </div>}
         </div>
@@ -113,7 +113,7 @@ useEffect(()=>{
             columns={columns}
           />
         </div>
-        {(step===2 && fq && sq ) && <div data-aos="fade-up" className="flex w-full justify-end"> <Link href="/demo"><button onClick={savetostorage}  className="text-lg text-white mt-5 transition-all hover:shadow-xl focus:ring-4 justify-self-start bg-[#9a42ff] hover:bg-[#6d28bd] p-3 px-5 rounded-lg mb-7 ml-3 shadow-md">Try more functions !</button></Link> </div>}
+        {(step===2 && fq && sq ) && <div data-aos="fade-up" className="flex w-full justify-end"> <Link href="/demo"><button onClick={savetostorage}  className="animate-bounce text-lg text-white mt-5 transition-all hover:shadow-xl focus:ring-4 justify-self-start bg-[#9a42ff] hover:bg-[#6d28bd] p-3 px-5 rounded-lg mb-7 ml-3 shadow-md">Try more functions !</button></Link> </div>}
       </div>
     </main>
   );
