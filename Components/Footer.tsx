@@ -11,7 +11,7 @@ const Footer:FC = ()=>{
             <Link href="/plans"><a className="hover:underline">Pricing</a></Link>
           </div>
           <div className="flex flex-col gap-3" >
-            <h2 className="text-lg font-bold">Contract us</h2>
+            <h2 className="text-lg font-bold">Contact us</h2>
            <a href="mailto:fexcel@thistine.com" className="hover:underline">Email: Fexcel@thistine.com</a>
           </div>
         </div>
