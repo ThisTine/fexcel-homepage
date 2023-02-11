@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import ReactTypingEffect from "react-typing-effect";
 
-const demo = () => {
+const Demo = () => {
   const [text, setText] = useState<string>("");
   const [result, setResult] = useState("Try asking for Average of cell A1 to A10");
   const [isLoading, toggle] = useBooleanToggle(false);
@@ -76,4 +76,4 @@ const demo = () => {
   );
 };
 
-export default demo;
+export default Demo;
