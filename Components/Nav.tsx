@@ -9,7 +9,7 @@ const NavBar:FC = ()=>{
                     <img src={"/logo.png"} className="h-12" />
                     <h1 className="text-2xl lg:text-3xl text-[#657CBC] font-bold" >Fexcel</h1>
                 </a></Link>
-                <Link href="/example">
+                <Link href="/demo">
                 <a className="flex h-fit p-2 items-center text-md lg:text-xl bg-purple-400 text-white px-5 lg:px-10 rounded-full hover:bg-purple-500 transition">
                     Try demo !
                 </a></Link>
