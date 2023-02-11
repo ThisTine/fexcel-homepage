@@ -1,7 +1,7 @@
 import { useBooleanToggle } from "@mantine/hooks";
 import axios from "axios";
 import Head from "next/head";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactTypingEffect from "react-typing-effect";
 
 const demo = () => {
