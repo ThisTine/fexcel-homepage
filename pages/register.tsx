@@ -20,6 +20,7 @@ const Register:NextPage = ()=>{
     <main className="min-h-screen bg-[#E2E6F9] p-20 border-4 border-solid border-[#7774C3]">
         <div className="w-full h-20"></div>
         <div className="container mx-auto mt-10 flex flex-col" >
+            
         <h1 className="text-8xl text-center font-Dongle "  >Email Sign-up</h1>
         <h2 className='text-3xl text-center font-semibold'  >ลงทะเบียนอีเมลเพื่อใช้บริการและรับข่าวสารสำคัญจากเรา</h2>
         <div className="w-full h-[2px] bg-black gap-20 mt-10 mb-10" ></div>
@@ -60,8 +61,17 @@ const Register:NextPage = ()=>{
             <h2 className="text-lg font-bold">ยอมรับข้อกำหนดการให้บริการและนโยบายความเป็นส่วนตัว</h2>
             </div>
         </div>
-        <button onClick={onOpen} className='px-16 py-5 bg-[#7CA1DE] text-2xl text-[#FFFFFF] font-bold rounded-3xl hover:bg-[#7774C3] transition whitespace-nowrap mt-5'>Register</button>         
+        <section className='flex justify-center my-10'>
+        <Link href="/verification"><a className='px-10 py-5 bg-[#94B1E1] hover:bg-[#7CA1DE] transition text-3xl rounded-full text-[#FFFFFF]' >Register</a></Link> 
+        </section>       
         </div>
+        <h4 className="text-4xl text-left font-Dongle "  >or</h4>
+        <section className='flex justify-left my-2'>
+            <Link href="/verification">
+            <div className='px-8 py-5 bg-[#FFFFFF] hover:bg-[#7CA1DE] transition text-3xl rounded-2xl text-[#4C00B0] flex' >Sign-in with Google   
+            <img src="/google.png" className="px-2 h-9 flex"/>
+            </div></Link> 
+        </section> 
     </main></>)
 }
 
