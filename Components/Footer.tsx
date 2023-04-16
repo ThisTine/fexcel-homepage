@@ -14,6 +14,7 @@ const Footer:FC = ()=>{
           <div className="flex flex-col gap-3" >
             <h2 className="text-lg font-bold">Contact us</h2>
            <a href="mailto:fexcel@thistine.com" className="hover:underline">Email: Fexcel@thistine.com</a>
+           <Link href="https://www.instagram.com/fexcel.official/"><a className="hover:underline"  target="_blank">Instagram</a></Link>
           </div>
         </div>
         <div className='container mx-auto'>
