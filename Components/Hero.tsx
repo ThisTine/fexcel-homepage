@@ -17,7 +17,7 @@ const Hero:FC = ()=>{
           <h2 data-aos="fade-up" data-aos-delay="100" className='text-4xl lg:text-7xl font-Dongle' > for excellent Excel experience </h2>
           <div className="flex gap-3 flex-wrap" >
           {/* <Link href="/demo"><button  className="flex gap-3 w-fit text-2xl focus:ring-4  items-center bg-purple-400 text-white px-10 py-3 rounded-full hover:bg-purple-500 transition" >{isdemo? "Example" : "Try Demo !"}</button></Link> */}
-          <Link href="/demo"><button  className="flex gap-3 w-fit text-2xl focus:ring-4  items-center bg-blue-400 text-white px-10 py-3 rounded-full hover:bg-blue-500 transition" >Try Demo !</button></Link>
+          <Link href="/demo"><button  className="flex gap-3 w-fit text-2xl focus:ring-4  items-center bg-blue-400 text-white px-10 py-3 rounded-full hover:bg-blue-500 transition" >Try out now !</button></Link>
           </div>
           
         </div>
