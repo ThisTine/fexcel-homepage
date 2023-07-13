@@ -4,7 +4,7 @@ import howitworks from '../animation/howtouse.json'
 
 const HowItWorks:FC = ()=>{
     return(
-        <section className='flex flex-col items-center'>
+      <section className='flex flex-col items-center'>
         <div className='bg-[#E2E6F9] w-full overflow-hidden' > <h1 className='text-center font-bold text-5xl lg:text-7xl py-3 font-Dongle  ' data-aos="flip-up" >How does Fexcel work ? </h1> </div>
         <div className=' container flex flex-col-reverse gap-5 lg:flex-row-reverse my-10 items-center'>
           <div className=' flex-[6] flex flex-col gap-5 items-center'>
