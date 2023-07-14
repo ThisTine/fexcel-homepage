@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       <Hero/>
       <About/>
       <HowItWorks/>
-      <NewFeatures/>
+      
       <Benefits/>
       {/* <section className='flex justify-center my-10'>
         <Link href="/plans"><a className='px-10 py-5 bg-[#FEA8BD] hover:bg-[#f883a0] transition text-2xl font-bold rounded-full' data-aos="flip-up" data-aos-duration="1000" >View Our Plans</a></Link> 
