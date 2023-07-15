@@ -3,12 +3,15 @@ import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import ReactTypingEffect from "react-typing-effect";
+import {useModel} from "../hooks/useModel";
+import {DemoModal} from "../Components/modal/DemoModal";
 
 const Demo = () => {
   const [text, setText] = useState<string>("");
   const [result, setResult] = useState("Try asking for Average of cell A1 to A10");
   const [isLoading, toggle] = useBooleanToggle(false);
   const [isRerender,setIsRerender] = useBooleanToggle(true)
+  const [isOpen,_, OnClose] = useModel(true)
   const sendApi = () => {
     toggle(true);
     axios
@@ -31,6 +34,8 @@ const Demo = () => {
       <Head>
         <title>Demo - Fexcel</title>
       </Head>
+      {typeof window !== undefined && <DemoModal isOpen={isOpen} onClose={OnClose}/>}
+
       <div className="flex gap-10  lg:mt-20 flex-col h-screen w-full lg:flex-row">
 
         <div className="w-fit justify-self-end pt-14 lg:pt-0 lg:flex-1 flex flex-col justify-center items-end mb-5">

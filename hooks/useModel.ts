@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-export const useModel: ()=>[boolean,()=>void,()=>void] = ()=>{
-    const [isOpen ,setisopen] = useState(false)
+export const useModel: (defaultValue?:boolean)=>[boolean,()=>void,()=>void] = (defaultValue)=>{
+    const [isOpen ,setisopen] = useState(defaultValue??false)
     const onClose = ()=>{setisopen(false)
         if(typeof window === 'object'){
             document.body.classList.remove("disablescroll")
