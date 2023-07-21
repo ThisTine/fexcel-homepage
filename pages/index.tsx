@@ -13,6 +13,9 @@ const Home: NextPage = () => {
       <Hero/>
       <About/>
       <HowItWorks/>
+      <div className="hidden md:block">
+      <NewFeatures/>
+      </div>
       
       <Benefits/>
       {/* <section className='flex justify-center my-10'>
